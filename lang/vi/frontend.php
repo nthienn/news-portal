@@ -35,7 +35,7 @@ return array (
   'Facebook' => 'Facebook',
   'Twitter' => 'Twitter',
   'Whatsapp' => 'Whatsapp',
-  'Telegram' => 'Điện tín',
+  'Telegram' => 'Telegram',
   'Linkedin' => 'Linkedin',
   'Comments' => 'Bình luận',
   'Reply' => 'Trả lời',

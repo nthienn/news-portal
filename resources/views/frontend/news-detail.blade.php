@@ -38,7 +38,7 @@
                             <ul class="list-inline d-flex flex-wrap justify-content-start">
                                 <li class="list-inline-item">
                                     {{ __('frontend.By') }}
-                                    <a href="">{{ $news->author->name }}</a>
+                                    <a href="javascript:void(0);">{{ $news->author->name }}</a>
                                 </li>
                                 <li class="list-inline-item">
                                     <span class="text-dark text-capitalize ml-1">
@@ -355,7 +355,7 @@
                                                         <li class="list-inline-item">
                                                             <span class="text-primary">
                                                                 {{ __('frontend.By') }}
-                                                                <a href="">{{ $post->author->name }}</a>
+                                                                {{ $post->author->name }}
                                                             </span>
                                                         </li>
                                                         <li class="list-inline-item">
@@ -548,13 +548,13 @@
                 e.preventDefault();
                 const id = $(this).data('id');
                 Swal.fire({
-                    title: __('frontend.Are you sure?'),
-                    text: __("frontend.You won't be able to revert this!"),
+                    title: "{{ __('frontend.Are you sure?') }}",
+                    text: "{!! __('frontend.You won\'t be able to revert this!') !!}",
                     icon: "warning",
                     showCancelButton: true,
                     confirmButtonColor: "#3085d6",
                     cancelButtonColor: "#d33",
-                    confirmButtonText: __('frontend.Yes, delete it!')
+                    confirmButtonText: "{{ __('frontend.Yes, delete it!') }}"
                 }).then((result) => {
                     if (result.isConfirmed) {
                         $.ajax({
@@ -566,7 +566,7 @@
                             success: function(response) {
                                 if (response.status === 'success') {
                                     Swal.fire({
-                                        title: __('frontend.Deleted!'),
+                                        title: "{{ __('frontend.Deleted!') }}",
                                         text: response.message,
                                         icon: "success"
                                     }).then(() => {
@@ -574,7 +574,7 @@
                                     });
                                 } else if (response.status === 'error') {
                                     Swal.fire({
-                                        title: __('frontend.Error!'),
+                                        title: "{{ __('frontend.Error!') }}",
                                         text: response.message,
                                         icon: "error"
                                     });

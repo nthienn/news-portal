@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\CategoryStoreRequest;
 use App\Http\Requests\Admin\CategoryUpdateRequest;
 use App\Models\Category;
 use App\Models\Language;
+use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
@@ -88,9 +89,14 @@ class CategoryController extends Controller implements HasMiddleware
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function destroy(string $id)
     {
         try {
+            $category = Category::findOrFail($id);
+            $news = News::where('category_id', $category->id)->get();
+            foreach ($news as $item) {
+                $item->tags()->delete();
+            }
             $category->delete();
             return response(['status' => 'success', 'message' => __('admin.Delete successfully!')]);
         } catch (\Throwable $th) {

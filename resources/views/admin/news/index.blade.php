@@ -167,7 +167,7 @@
         @endforeach
 
         $(document).ready(function() {
-            $('.toggle-status').click(function() {
+            $('body').on('click', '.toggle-status', function() {
                 const id = $(this).data('id');
                 const name = $(this).data('name');
                 const status = $(this).prop('checked') ? 1 : 0;

@@ -20,7 +20,7 @@
                                                 <li class="list-inline-item">
                                                     <span class="text-primary">
                                                         {{ __('frontend.By') }}
-                                                        <a href="">{{ $news->author->name }}</a>
+                                                        {{ $news->author->name }}
                                                     </span>
                                                 </li>
                                                 <li class="list-inline-item">

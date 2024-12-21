@@ -150,13 +150,13 @@
             $('.delete').click(function(e) {
                 e.preventDefault();
                 Swal.fire({
-                    title: __('admin.Are you sure?'),
-                    text: __("admin.You won't be able to revert this!"),
+                    title: "{{ __('admin.Are you sure?') }}",
+                    text: "{!! __('admin.You won\'t be able to revert this!') !!}",
                     icon: "warning",
                     showCancelButton: true,
                     confirmButtonColor: "#3085d6",
                     cancelButtonColor: "#d33",
-                    confirmButtonText: __('admin.Yes, delete it!')
+                    confirmButtonText: "{{ __('admin.Yes, delete it!') }}"
                 }).then((result) => {
                     if (result.isConfirmed) {
                         const url = $(this).attr('href');
@@ -166,7 +166,7 @@
                             success: function(response) {
                                 if (response.status === 'success') {
                                     Swal.fire({
-                                        title: __('admin.Deleted!'),
+                                        title: "{{ __('admin.Deleted!') }}",
                                         text: response.message,
                                         icon: "success"
                                     }).then(() => {
@@ -174,7 +174,7 @@
                                     });
                                 } else if (response.status === 'error') {
                                     Swal.fire({
-                                        title: __('admin.Error!'),
+                                        title: "{{ __('admin.Error!') }}",
                                         text: response.message,
                                         icon: "error"
                                     });
